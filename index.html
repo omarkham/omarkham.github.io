@@ -15,13 +15,15 @@
     <div class="container">
         <nav>
             <a href="#" class="logo">Markham</a>
-            <ul>
+            <ul id = "sidemenu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick = "closemenu()"></i>
             </ul>
+            <i class="fas fa-bars" onclick = "openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Aspiring Programmer</p>
@@ -275,10 +277,34 @@
 <div id="contact">
     <div class="container">
         <div class="row">
-                <div class="contact-left"></div>
-                <div class="contact-left"></div>
+                <div class="contact-left">
+                    <h1 class = "sub-title">Contact me</h1>
+                    <p><i class="fa-sharp fa-solid fa-paper-plane"></i>  livia.markham@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>  416-677-7166</p>
+                    <div class = "social-icons">
+                        <br>
+                        <a href="www.linkedin.com/in/omarkham"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://omarkham.github.io/"><i class="fa-brands fa-square-github"></i></a>
+                        <p><br></p>
+                    </div>
+                    <a href="" download class = "btn btn2">Download Resume</a>
+                </div>
+                <div class="contact-right">
+                    <form name = "submit-to-google-sheet">
+                        <input type="Text" name = "Name" placeholder = "Your Name" required>
+                        <input type=Eemail" name = "Email" placeholder = "Your Email" required>
+                        <textarea name="Message" rows="6" placeholder = "Your Message"></textarea>
+                        <button type = "submit" class = "btn btn2">Submit</button>
+                    </form>
+                    <span id = "msg"></span>
+                </div>
             </div>
         </div>
+    </div>
+    <div class = "copyright">
+        <p><br></p>
+        <p><br></p>
+        <p>Copyright © Olivia Markham</p>
     </div>
 </div>
 <script>
@@ -298,5 +324,33 @@
 
 </script>
 
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw99m2-cN5kuxt35aYc7ShtftN3_dmtB9kIGOTEX9TE7jhN49RaqWBPInL4inRRBA/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent succesfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)//after 5 seconds
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 </html>
