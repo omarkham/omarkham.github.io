@@ -84,12 +84,13 @@ nav ul li a:hover::after{
     flex-basis: 30%; /*width*/
 }
 .about-col-1 img{
-    width: 60%;
+    width: 130%;
     border-radius: 5px;
-    margin-left: 50px;
+    margin-left: 0px;
 }
 .about-col-2{
-    flex-basis: 60%; /*width*/
+    flex-basis: 40%; /*width*/
+    margin-left: 65px;
 }
 .sub-title{
     font-size: 50px;
@@ -270,6 +271,7 @@ nav ul li a:hover::after{
     gap: 40px;
     margin-top: 25px;
 }
+
 .images-list div{
     background: #262626;
     font-size: 13px;
@@ -281,18 +283,28 @@ nav ul li a:hover::after{
     font-weight: 500;
 }
 .images-list div p{
+    text-align: center;
     font-size: 13px;
     font-weight: 10;
     color: white
 }
+.images-list div h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 10;
+    color: white
+}
 .images-list div a{
+    text-align: center;
     text-decoration: none;
     color: #fff;
-    font-size: 30px;
-    font-weight: 500;
-    margin-top: 20px 20px;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 5px;
+    margin-left: 70px;
     display: inline-block;
 }
+
 .images-list div:hover{
     background: #4a4b4a;
     transform: translateY(-3px);
